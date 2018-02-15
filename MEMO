@@ -1,4 +1,0 @@
-//Pushing
-- git add [sources file][--all]
-- git commit [sources file][-a]
-- git push origin [branch]
