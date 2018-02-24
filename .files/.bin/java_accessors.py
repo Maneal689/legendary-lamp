@@ -36,8 +36,7 @@ def main():
                     "get" + var[1].capitalize() +
                     "()\n{\n    return (" +
                     var[1] + ");\n}")
-            res_set.append("public " +
-                    var[0] + " " +
+            res_set.append("public void " +
                     "set" + var[1].capitalize() + "(" + var[0] + " p" +
                     var[1].capitalize() + ")\n{\n    " +
                     var[1] + " = " + "p" + var[1].capitalize() + ";\n}")
