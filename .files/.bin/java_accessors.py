@@ -19,7 +19,11 @@ def main():
     ### READ THE FILE ###
     if (argc() != 2):
         exit(84)
-    file = open(sys.argv[1], "r")
+    try:
+        file = open(sys.argv[1], "r")
+    except:
+        print("File doesn't exists.")
+        exit(84)
     text = file.read()
     file.close()
 
