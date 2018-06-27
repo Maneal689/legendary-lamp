@@ -1,1 +1,0 @@
-chmod ugo+x *.py

@@ -92,5 +92,10 @@ alias ll="ls --color=auto -lX"
 alias lla="ls --color=auto -laX"
 alias ne="emacs -nw"
 alias ..="cd .."
+alias cmakeg="cmake -G \"Unix Makefiles\""
 
 screenfetch
+### C Graphical Programming Environement Variable
+export LIBRARY_PATH=$LIBRARY_PATH:/home/maneal/.graph_programming/lib
+export LD_LIBRARY_PATH=$LIBRARY_PATH:/home/maneal/.graph_programming/lib
+export CPATH=$CPATH:/home/maneal/.graph_programming/include

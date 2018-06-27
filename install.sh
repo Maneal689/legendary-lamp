@@ -50,6 +50,7 @@ echo -e "y\n" | sudo $packtool $packArgInstall gcc
 echo -e "y\n" | sudo $packtool $packArgInstall clang
 echo -e "y\n" | sudo $packtool $packArgInstall filezilla
 echo -e "y\n" | sudo $packtool $packArgInstall git
+echo -e "y\n" | sudo $packtool $packArgInstall cmake
 
 echo "############"
 echo "### DONE ###"
