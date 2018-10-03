@@ -42,7 +42,6 @@ echo -e "y\n" | sudo $packtool $packArgInstall terminator
 echo -e "y\n" | sudo $packtool $packArgInstall zsh
 echo -e "y\n" | sudo $packtool $packArgInstall curl
 echo -e "y\n" | sudo $packtool $packArgInstall wget
-#echo -e "y\n" | sudo $packtool $packArgInstall emacs
 echo -e "y\n" | sudo $packtool $packArgInstall ncurses
 echo -e "y\n" | sudo $packtool $packArgInstall valgrind
 echo -e "y\n" | sudo $packtool $packArgInstall gdb
