@@ -87,8 +87,7 @@ echo "###############################"
 cp .files/.zshrc ~/
 cp -r .files/.oh-my-zsh ~/
 cp -r .files/.bin/ ~/
-echo "Enter \"/bin/zsh\""
-chsh
+chsh -s /bin/zsh
 
 echo "############"
 echo "### DONE ###"
