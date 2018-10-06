@@ -1,6 +1,6 @@
 [global_config]
   borderless = True
-  title_font = Inconsolata for Powerline Medium 12
+  title_font = PowerlineSymbols Medium 12
   title_hide_sizetext = True
   title_use_system_font = False
 [keybindings]
@@ -8,6 +8,7 @@
   [[default]]
     [[[child1]]]
       parent = window0
+      profile = default
       type = Terminal
     [[[window0]]]
       parent = ""
@@ -19,9 +20,9 @@
     background_type = transparent
     cursor_color = "#aaaaaa"
     font = Inconsolata for Powerline Medium 12
-    foreground_color = "#729fcf"
+    foreground_color = "#ffffff"
     icon_bell = False
-    palette = "#000000:#aa0000:#00aa00:#aa5500:#00482f:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    palette = "#2e3436:#cd0000:#00cd00:#cdcd00:#babdb6:#cd00cd:#888a85:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#b5b5ff:#ff00ff:#555753:#ffffff"
     scrollbar_position = hidden
     show_titlebar = False
     use_system_font = False

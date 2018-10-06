@@ -44,7 +44,7 @@ set laststatus=2
 
 call plug#begin('~/.vim/plugged')
 Plug 'bling/vim-airline'
-Plug 'valloric/youcompleteme'
+"Plug 'valloric/youcompleteme'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-sensible'
 Plug 'jiangmiao/auto-pairs'
@@ -53,6 +53,7 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'pangloss/vim-javascript'
 call plug#end()
 
 "PLUGINS"

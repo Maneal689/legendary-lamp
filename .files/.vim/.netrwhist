@@ -1,3 +1,8 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/home/maneal/.vim'
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/maneal/Documents/cours3/algo/CM'
+let g:netrw_dirhist_2='/home/maneal/Documents/cours3/algo/TD/TD2'
+let g:netrw_dirhist_3='/home/maneal/.conky'
+let g:netrw_dirhist_4='/home/maneal/.config/i3'
+let g:netrw_dirhist_5='/home/maneal/.config/i3status'
+let g:netrw_dirhist_6='/home/maneal/.config/i3'
