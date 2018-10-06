@@ -22,13 +22,14 @@ sudo pacman -S lxappearance
 sudo pacman -S rofi
 sudo pacman -S dmenu
 sudo pacman -S i3status
-sudo pacman -S polybar
 sudo pacman -S network-manager-applet
 sudo pacman -S ranger
 echo "Select ttf and otf Awesome fonts v5"
 yaourt font-awesome
 echo "Select siji-git"
 yaourt siji
+echo "Select polybar"
+yaourt polybar
 
 echo "#############################"
 echo "###   INSTALLATION DONE   ###"
