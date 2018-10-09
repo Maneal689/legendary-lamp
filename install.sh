@@ -41,11 +41,11 @@ echo -e "y\n" | sudo $packtool $packArgInstall terminator
 echo -e "y\n" | sudo $packtool $packArgInstall zsh
 echo -e "y\n" | sudo $packtool $packArgInstall curl
 echo -e "y\n" | sudo $packtool $packArgInstall wget
-echo -e "y\n" | sudo $packtool $packArgInstall ncurses
+#echo -e "y\n" | sudo $packtool $packArgInstall ncurses
 echo -e "y\n" | sudo $packtool $packArgInstall valgrind
 echo -e "y\n" | sudo $packtool $packArgInstall gdb
 echo -e "y\n" | sudo $packtool $packArgInstall gcc
-echo -e "y\n" | sudo $packtool $packArgInstall clang
+#echo -e "y\n" | sudo $packtool $packArgInstall clang
 #echo -e "y\n" | sudo $packtool $packArgInstall filezilla
 echo -e "y\n" | sudo $packtool $packArgInstall git
 echo -e "y\n" | sudo $packtool $packArgInstall cmake

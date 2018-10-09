@@ -20,16 +20,8 @@ echo "################"
 echo "################################"
 echo "###   COPYING CONFIG FILES   ###"
 echo "################################"
-cp -r ~/.config/i3 ~/Projects/script/legendary-lamp/.files/config/
-echo ".config/i3 (R)"
-cp -r ~/.config/polybar ~/Projects/script/legendary-lamp/.files/config/
-echo ".config/polybar (R)"
-cp -r ~/.config/rofi ~/Projects/script/legendary-lamp/.files/config/
-echo ".config/rofi (R)"
-cp -r ~/.config/terminator ~/Projects/script/legendary-lamp/.files/config/
-echo ".config/terminator (R)"
+cp -r ~/.config/{i3,polybar,rofi,terminator} ~/Projects/script/legendary-lamp/.files/config/
 cp ~/.Xresources ~/Projects/script/legendary-lamp/.files/config
-echo ".Xresources"
 echo "################"
 echo "###   DONE   ###"
 echo "################"
