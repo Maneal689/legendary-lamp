@@ -47,7 +47,7 @@ client.background $background
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec $term
+bindsym $mod+Return exec $term --working-directory=$PWD
 bindsym $mod+k exec $term -e ranger
 bindsym $mod+l exec i3lock -c 001010
 #bindsym $mod+l exec i3lock -i ~/.config/i3/circuit.jpg
