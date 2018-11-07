@@ -36,6 +36,7 @@ echo "### INSTALLING NECESSARIES ###"
 echo "##############################"
 
 echo -e "y\n" | sudo $packtool $packArgInstall vim
+echo -e "y\n" | sudo $packtool $packArgInstall neovim
 echo -e "y\n" | sudo $packtool $packArgInstall tree
 echo -e "y\n" | sudo $packtool $packArgInstall terminator
 echo -e "y\n" | sudo $packtool $packArgInstall zsh
@@ -45,7 +46,7 @@ echo -e "y\n" | sudo $packtool $packArgInstall wget
 echo -e "y\n" | sudo $packtool $packArgInstall valgrind
 echo -e "y\n" | sudo $packtool $packArgInstall gdb
 echo -e "y\n" | sudo $packtool $packArgInstall gcc
-#echo -e "y\n" | sudo $packtool $packArgInstall clang
+echo -e "y\n" | sudo $packtool $packArgInstall clang
 #echo -e "y\n" | sudo $packtool $packArgInstall filezilla
 echo -e "y\n" | sudo $packtool $packArgInstall git
 echo -e "y\n" | sudo $packtool $packArgInstall cmake
@@ -72,8 +73,9 @@ echo "##################"
 echo "### CONFIG VIM ###"
 echo "##################"
 
-cp -r .files/.vim ~/
-cp .files/.vimrc ~/
+#cp -r .files/.vim ~/
+#cp .files/.vimrc ~/
+cp -r .files/config/nvim $HOME/.config/
 
 echo "############"
 echo "### DONE ###"

@@ -201,8 +201,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- unmut
 #bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 
 assign [class="Firefox"] $ws2
-for_window [class="URxvt"] border pixel 0
-assign [class="qjackctl|qsynth|qtractor"] $ws4
+assign [class="Evince"] $ws3
+assign [class="qjackctl|qsynth|qtractor|MuseScore2"] $ws4
 
 gaps inner 15
 gaps outer 2

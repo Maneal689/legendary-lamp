@@ -1,9 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.bin:$PATH
 export TERM="xterm-256color"
+#export LEGENDARY="$HOME/Projects/script/legendary-lamp"
+export PBIN="$HOME/.bin"
 
 # Path to your oh-my-zsh installation.
-  export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -112,9 +114,11 @@ alias lla="ls --color=auto -laX"
 alias ne="emacs -nw"
 alias ..="cd .."
 alias cmakeg="cmake -G \"Unix Makefiles\""
+alias vim="nvim"
+alias vi="nvim"
 
 screenfetch
 ### C Graphical Programming Environement Variable
-export LIBRARY_PATH=$LIBRARY_PATH:/home/maneal/.graph_programming/lib
-export LD_LIBRARY_PATH=$LIBRARY_PATH:/home/maneal/.graph_programming/lib
-export CPATH=$CPATH:/home/maneal/.graph_programming/include
+#export LIBRARY_PATH=$LIBRARY_PATH:/home/maneal/.graph_programming/lib
+#export LD_LIBRARY_PATH=$LIBRARY_PATH:/home/maneal/.graph_programming/lib
+#export CPATH=$CPATH:/home/maneal/.graph_programming/include

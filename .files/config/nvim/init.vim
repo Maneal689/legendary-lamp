@@ -17,10 +17,9 @@ runtime! archlinux.vim
 " do not load defaults if ~/.vimrc is missing
 "let skip_defaults_vim=1
 
-"execute pathogen#infect()
 filetype plugin indent on
 syntax on
-set nocompatible
+"set nocompatible
 set background=dark
 set number
 set showcmd
@@ -37,34 +36,62 @@ set bs=2
 set encoding=utf8
 set fileencoding=utf-8
 set linebreak
-colorscheme zerg
-"colorscheme koehler
 set laststatus=2
+set foldmethod=syntax
 
+"colorscheme zerg
+"colorscheme darkest-space
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
+
+"Esthetic
+Plug 'morhetz/gruvbox'
 Plug 'bling/vim-airline'
-"Plug 'valloric/youcompleteme'
 Plug 'nathanaelkane/vim-indent-guides'
-Plug 'tpope/vim-sensible'
+"Completion
+Plug 'valloric/youcompleteme'
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'rstacruz/sparkup'
 Plug 'jiangmiao/auto-pairs'
-Plug 'easymotion/vim-easymotion'
-Plug 'majutsushi/tagbar'
+"Shortcuts
 Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
+"Settings and efficiency
+Plug 'tpope/vim-sensible'
+Plug 'vim-scripts/YankRing.vim'
+Plug 'majutsushi/tagbar'
 Plug 'pangloss/vim-javascript'
+Plug 'tmhedberg/simpylfold'
+Plug 'w0rp/ale'
+
+"Not using
+"Plug 'tpope/vim-surround'
+"Plug 'easymotion/vim-easymotion'
+"Plug 'tpope/vim-fugitive'
 call plug#end()
 
+
 "PLUGINS"
+
+"gruvbox
+let g:gruvbox_contrast_dark = "hard"
+colorscheme gruvbox
 "powerline
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
-
 "indent_guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
-
+"UltiSnip Shortcut
+let g:UltiSnipsExpandTrigger="<c-l>"
 "tagbar keybind
 nmap <F8> :TagbarToggle<CR>
+"Yankring
+"let g:yankring_history_dir="$HOME"
+let g:yankring_history_file = ".nvim_yankring"
+"ALE Fixers
+"let g:ale_fixers = [
+"\   'clang-format',
+"\   'eslint',
+"\]
