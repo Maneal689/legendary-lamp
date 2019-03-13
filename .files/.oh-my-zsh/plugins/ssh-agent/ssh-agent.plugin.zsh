@@ -2,20 +2,41 @@ typeset _agent_forwarding _ssh_env_cache
 
 function _start_agent() {
 	local lifetime
-	local -a identities
-
-	# start ssh-agent and setup environment
 	zstyle -s :omz:plugins:ssh-agent lifetime lifetime
 
+	# start ssh-agent and setup environment
+	echo starting ssh-agent...
 	ssh-agent -s ${lifetime:+-t} ${lifetime} | sed 's/^echo/#echo/' >! $_ssh_env_cache
 	chmod 600 $_ssh_env_cache
 	. $_ssh_env_cache > /dev/null
+}
 
-	# load identies
+function _add_identities() {
+	local id line sig
+	local -a identities loaded not_loaded signatures
 	zstyle -a :omz:plugins:ssh-agent identities identities
 
-	echo starting ssh-agent...
-	ssh-add $HOME/.ssh/${^identities}
+	# check for .ssh folder presence
+	if [[ ! -d $HOME/.ssh ]]; then
+		return
+	fi
+
+	# get list of loaded identities' signatures
+	for line in ${(f)"$(ssh-add -l)"}; do loaded+=${${(z)line}[2]}; done
+
+	# get signatures of private keys
+	for id in $identities; do
+		signatures+="$(ssh-keygen -lf "$HOME/.ssh/$id" | awk '{print $2}')	$id"
+	done
+
+	# add identities if not already loaded
+	for sig in $signatures; do
+		id="$(cut -f2 <<< $sig)"
+		sig="$(cut -f1 <<< $sig)"
+		[[ ${loaded[(I)$sig]} -le 0 ]] && not_loaded+="$HOME/.ssh/$id"
+	done
+
+	if [[ -n "$not_loaded" ]] && ssh-add ${^not_loaded}
 }
 
 # Get the filename to store/lookup the environment from
@@ -42,6 +63,8 @@ else
 	_start_agent
 fi
 
+_add_identities
+
 # tidy up after ourselves
 unset _agent_forwarding _ssh_env_cache
-unfunction _start_agent
+unfunction _start_agent _add_identities

@@ -1,8 +1,7 @@
-" All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
+"ping All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
 " /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
 " you can find below.  If you wish to change any of those settings, you should
 " do it in this file (/etc/vimrc), since archlinux.vim will be overwritten
-" everytime an upgrade of the vim packages is performed.  It is recommended to
 " make changes after sourcing archlinux.vim since it alters the value of the
 " 'compatible' option.
 
@@ -19,24 +18,33 @@ runtime! archlinux.vim
 
 filetype plugin indent on
 syntax on
-"set nocompatible
+
+"Enable omni completion <C-x><C-o> to open menu <C-n> or <C-p> to navigate
+"set omnifunc=syntaxcomplete#Complete
+
 set background=dark
 set number
 set showcmd
-set ignorecase
+set smartcase
 set t_Co=256
-"set autoindent
 set smartindent
+
+""Indent with spaces
 set expandtab
-set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+
+""Indent with tabs
+"set shiftwidth=4
+"set tabstop=4
+
 set ruler
+set cursorline
 set bs=2
-set encoding=utf8
+"set encoding=utf8
 set fileencoding=utf-8
+set encoding=UTF-8
 set linebreak
-set laststatus=2
 set foldmethod=syntax
 
 "colorscheme zerg
@@ -45,23 +53,40 @@ set foldmethod=syntax
 call plug#begin('~/.config/nvim/plugged')
 
 "Esthetic
-Plug 'morhetz/gruvbox'
+Plug 'ap/vim-css-color'
 Plug 'bling/vim-airline'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ryanoasis/vim-devicons'
+"Plug 'altercation/vim-colors-solarized'
+Plug 'tomasr/molokai'
+
+"Plug 'morhetz/gruvbox'
+"Plug 'joshdick/onedark.vim'
+"Plug 'vim-airline/vim-airline-themes'
+"Plug 'flazz/vim-colorschemes'
 "Completion
-Plug 'valloric/youcompleteme'
-Plug 'sirver/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'rstacruz/sparkup'
 Plug 'jiangmiao/auto-pairs'
+Plug 'mattn/emmet-vim'
+Plug 'valloric/youcompleteme'
+Plug 'vim-scripts/SQLComplete.vim'
+Plug 'vim-scripts/dbext.vim'
 "Shortcuts
 Plug 'scrooloose/nerdcommenter'
 "Settings and efficiency
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-sensible'
 Plug 'vim-scripts/YankRing.vim'
-Plug 'majutsushi/tagbar'
+"For Tmux navigating seamingless
+Plug 'christoomey/vim-tmux-navigator'
+
+"For JavaScript syntax handling
 Plug 'pangloss/vim-javascript'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'mxw/vim-jsx'
+"For Python synthax folding
 Plug 'tmhedberg/simpylfold'
+"Fixer/Linter
 Plug 'w0rp/ale'
 
 "Not using
@@ -71,27 +96,73 @@ Plug 'w0rp/ale'
 call plug#end()
 
 
-"PLUGINS"
+"KEYMAP
+"map <End> <Esc>A
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+vnoremap <M-s> :sort<CR>
+nnoremap <M-f> :ALEFix<CR>
+nmap <F2> :r !xsel -op<CR>
 
-"gruvbox
-let g:gruvbox_contrast_dark = "hard"
-colorscheme gruvbox
-"powerline
+"""""""""""""""""""""PLUGINS""""""""""""""""""""""
+
+"ALE
+let g:ale_fixers = {
+\   'javascript': ['prettier', 'eslint'],
+\   'json': ['prettier', 'eslint'],
+\   'css': ['prettier'],
+\   'java': ['uncrustify'],
+\   'c': ['uncrustify'],
+\}
+
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'json': ['eslint'],
+\}
+
+"let g:ale_fix_on_save = 1
+
+"colorschemes
+"let g:gruvbox_contrast_dark = "soft"
+"colorscheme gruvbox
+
+"let g:solarized_termcolors=256
+"let g:solarized_contrast="hard"
+"colorscheme solarized
+
+let g:rehash256 = 1
+let g:molokai_original = 1
+colorscheme molokai
+
+"colorscheme onedark
+
+"AirLine
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
+
+
 "indent_guides
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size=1
-"UltiSnip Shortcut
-let g:UltiSnipsExpandTrigger="<c-l>"
-"tagbar keybind
+
+"Emmet
+let g:user_emmet_mode='a'
+let g:user_emmet_install_global = 0
+let g:user_emmet_leader_key='<C-e>'
+
+autocmd FileType html,css,javascript,ejs,php,hbs EmmetInstall
+
+"NerdTree
+map <C-f> :NERDTreeToggle<CR>
+
+"Tagbar
 nmap <F8> :TagbarToggle<CR>
+
 "Yankring
 "let g:yankring_history_dir="$HOME"
+let g:yankring_clipboard_monitor=0
 let g:yankring_history_file = ".nvim_yankring"
-"ALE Fixers
-"let g:ale_fixers = [
-"\   'clang-format',
-"\   'eslint',
-"\]

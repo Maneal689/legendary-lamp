@@ -1,4 +1,0 @@
-#!/bin/sh
-
-cd ~/.bin/.files
-java -jar ~/.bin/.files/ProjectManager.jar

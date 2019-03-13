@@ -69,9 +69,9 @@ echo "### DONE ###"
 echo "############"
 
 
-echo "##################"
-echo "### CONFIG VIM ###"
-echo "##################"
+echo "######################"
+echo "### CONFIG NEO-VIM ###"
+echo "######################"
 
 #cp -r .files/.vim ~/
 #cp .files/.vimrc ~/

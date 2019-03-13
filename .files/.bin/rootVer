@@ -1,5 +1,0 @@
-if [ $HOME == "/root" ]; then
-    echo "Don't run as root."
-    exit
-fi
-

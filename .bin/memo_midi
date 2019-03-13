@@ -1,3 +1,0 @@
-timidity xxxx.mid to play it
-timidity xxxx.mid -Ow -o xxxx.wav to convert it in wav format
-soundconverter (GUI) to convert in mp3
