@@ -1,10 +1,12 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.bin:$PATH
-export TERM="screen-256color"
+export TERM="tmux-256color"
+#export TERM="screen-256color"
 #export TERM="xterm-256color"
 
 #export LEGENDARY="$HOME/Projects/script/legendary-lamp"
 export PBIN="$HOME/.bin"
+export LEGENDARY="$HOME/Projects/perso/script/legendary-lamp"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -87,11 +89,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+ if [[ -n $SSH_CONNECTION ]]; then
+   export EDITOR='nvim'
+ else
+   export EDITOR='nvim'
+ fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -124,8 +126,3 @@ alias propre="clear"
 [[ -z "$TMUX" ]] && tmux h && exec tmux a
 [[ -z "$TMUX" ]] && exec tmux
 [[ -n "$TMUX" ]] && screenfetch
-
-### C Graphical Programming Environement Variable
-#export LIBRARY_PATH=$LIBRARY_PATH:/home/maneal/.graph_programming/lib
-#export LD_LIBRARY_PATH=$LIBRARY_PATH:/home/maneal/.graph_programming/lib
-#export CPATH=$CPATH:/home/maneal/.graph_programming/include

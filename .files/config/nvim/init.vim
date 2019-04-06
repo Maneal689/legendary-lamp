@@ -22,6 +22,9 @@ syntax on
 "Enable omni completion <C-x><C-o> to open menu <C-n> or <C-p> to navigate
 "set omnifunc=syntaxcomplete#Complete
 
+let &guicursor = 'n-v-c-sm:block-blinkwait1000-blinkon500-blinkoff500,'
+        \          . 'i-c-ci-ve:ver25-blinkwait1000-blinkon500-blinkoff500,'
+        \          . 'r-cr-o:hor20-blinkwait1000-blinkon500-blinkoff500'
 set background=dark
 set number
 set showcmd
@@ -31,8 +34,8 @@ set smartindent
 
 ""Indent with spaces
 set expandtab
-set softtabstop=4
-set shiftwidth=4
+set softtabstop=2
+set shiftwidth=2
 
 ""Indent with tabs
 "set shiftwidth=4
@@ -57,42 +60,41 @@ Plug 'ap/vim-css-color'
 Plug 'bling/vim-airline'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'ryanoasis/vim-devicons'
-"Plug 'altercation/vim-colors-solarized'
 Plug 'tomasr/molokai'
+Plug 'godlygeek/tabular'
+Plug 'airblade/vim-gitgutter'
 
-"Plug 'morhetz/gruvbox'
 "Plug 'joshdick/onedark.vim'
-"Plug 'vim-airline/vim-airline-themes'
-"Plug 'flazz/vim-colorschemes'
 "Completion
 Plug 'jiangmiao/auto-pairs'
 Plug 'mattn/emmet-vim'
 Plug 'valloric/youcompleteme'
-Plug 'vim-scripts/SQLComplete.vim'
-Plug 'vim-scripts/dbext.vim'
-"Shortcuts
-Plug 'scrooloose/nerdcommenter'
+"
 "Settings and efficiency
+Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-sensible'
+Plug 'scrooloose/nerdcommenter'
 Plug 'vim-scripts/YankRing.vim'
+Plug 'tpope/vim-eunuch'
+Plug 'terryma/vim-multiple-cursors'
 "For Tmux navigating seamingless
 Plug 'christoomey/vim-tmux-navigator'
-
 "For JavaScript syntax handling
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'mxw/vim-jsx'
+"
 "For Python synthax folding
-Plug 'tmhedberg/simpylfold'
+"Plug 'tmhedberg/simpylfold'
+"
 "Fixer/Linter
 Plug 'w0rp/ale'
 
 "Not using
 "Plug 'tpope/vim-surround'
 "Plug 'easymotion/vim-easymotion'
-"Plug 'tpope/vim-fugitive'
 call plug#end()
 
 
@@ -123,15 +125,7 @@ let g:ale_linters = {
 \   'json': ['eslint'],
 \}
 
-"let g:ale_fix_on_save = 1
-
-"colorschemes
-"let g:gruvbox_contrast_dark = "soft"
-"colorscheme gruvbox
-
-"let g:solarized_termcolors=256
-"let g:solarized_contrast="hard"
-"colorscheme solarized
+let g:ale_fix_on_save = 1
 
 let g:rehash256 = 1
 let g:molokai_original = 1

@@ -35,12 +35,12 @@ set_from_resource       $background   background
 set_from_resource       $foreground   foreground
 
 # class			border	    backgr.   	text	       indicat   child_border
-client.focused          $background #222D32     $foreground    #FFCC66   $active
-client.focused_inactive $background #222D32 	$foreground    #484e50   $inactive
-client.unfocused        $background #182125     $inactive      #292d2e   $inactive
-client.urgent           $active     $active    	$background    #900000   $active
-client.placeholder      $background $background $foreground    #000000   $inactive
-client.background $background
+#client.focused          $background #222D32     $foreground    #FFCC66   $active
+#client.focused_inactive $background #222D32 	$foreground    #484e50   $inactive
+#client.unfocused        $background #182125     $inactive      #292d2e   $inactive
+#client.urgent           $active     $active    	$background    #900000   $active
+#client.placeholder      $background $background $foreground    #000000   $inactive
+#client.background $background
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -48,8 +48,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec $term --working-directory=$PWD
-bindsym $mod+k exec $term -e ranger
-bindsym $mod+l exec i3lock -c 001010
+
 #bindsym $mod+l exec i3lock -i ~/.config/i3/circuit.jpg
 
 # kill focused window
@@ -192,24 +191,51 @@ bindsym $mod+r mode "resize"
         #status_command i3status
 #}
 
+
+### PERSONNAL CONFIG ###
+
+default_border none
+default_floating_border normal
+
+bindsym $mod+k exec $term -e ranger
+#bindsym $mod+l exec i3lock -c 001010
+bindsym $mod+l exec i3lock -i ~/Images/Background/panda.png
+bindsym $mod+i exec chromium
+
+for_window [class="Colorgrab"] floating enable
+for_window [class="Colorgrab"] floating_maximum_size 375 x 350
 # Pulse Audio controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 5%- unmute
-#bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
+bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 
-assign [class="Firefox"] $ws2
-assign [class="Evince"] $ws3
-assign [class="qjackctl|qsynth|qtractor|MuseScore2"] $ws4
+assign [class="Firefox|Chromium"] $ws2
+assign [class="Evince"] $ws4
+assign [class="qjackctl|qsynth|qtractor|MuseScore2"] $ws5
 
 gaps inner 15
 gaps outer 2
+
+exec --no-startup-id xrandr --output DP2 --left-of eDP1 --auto
+#exec --no-startup-id xrandr --output DP1 --left-of eDP1 --auto
+#workspace "6" output DP1
+#workspace "7" output DP1
+#workspace "8" output DP1
+#workspace "9" output DP1
+#workspace "10" output DP1
+workspace "6" output DP2
+workspace "7" output DP2
+workspace "8" output DP2
+workspace "9" output DP2
+workspace "10" output DP2
+
 exec --no-startup-id compton
 exec --no-startup-id $term
-exec --no-startup-id firefox
+exec --no-startup-id chromium
 exec --no-startup-id conky
-exec --no-startup-id feh --bg-scale ~/Images/Background/Moon.jpg
+exec --no-startup-id feh --bg-scale ~/Images/Background/ilebackground.jpg
 exec_always --no-startup-id "killall polybar; polybar -r default"
 exec_always --no-startup-id nm-applet

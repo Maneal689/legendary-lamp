@@ -50,6 +50,7 @@ echo -e "y\n" | sudo $packtool $packArgInstall clang
 #echo -e "y\n" | sudo $packtool $packArgInstall filezilla
 echo -e "y\n" | sudo $packtool $packArgInstall git
 echo -e "y\n" | sudo $packtool $packArgInstall cmake
+echo -e "y\n" | sudo $packtool $packArgInstall screenfetch
 
 echo "############"
 echo "### DONE ###"
@@ -61,7 +62,7 @@ echo "### INSTALL POWERLINE FONT ###"
 echo "##############################"
 
 mkdir ~/.fonts
-sudo cp .files/Inconsolata\ for\ Powerline.otf ~/.fonts/
+sudo cp .files/Fura\ Code\ Regular\ Nerd\ Font\ Complete.ttf ~/.fonts/
 fc-cache -f -v
 
 echo "############"
@@ -76,6 +77,8 @@ echo "######################"
 #cp -r .files/.vim ~/
 #cp .files/.vimrc ~/
 cp -r .files/config/nvim $HOME/.config/
+ln -s ~/.vimrc $HOME/.config/nvim/init.vim
+ln -s ~/.vim $HOME/.config/nvim
 
 echo "############"
 echo "### DONE ###"

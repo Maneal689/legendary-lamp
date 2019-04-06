@@ -25,11 +25,11 @@ sudo pacman -S i3status
 sudo pacman -S network-manager-applet
 sudo pacman -S ranger
 echo "Select ttf and otf Awesome fonts v5"
-yaourt font-awesome
+trizen font-awesome
 echo "Select siji-git"
-yaourt siji
+trizen siji
 echo "Select polybar"
-yaourt polybar
+trizen polybar
 
 echo "#############################"
 echo "###   INSTALLATION DONE   ###"
@@ -40,8 +40,6 @@ echo "###   COPYING CONFIG FILES   ###"
 echo "################################"
 
 cp -r .files/config/* ~/.config/
-cp .files/config/.Xresources ~/
-xrdb ~/.Xresources
 
 echo "###########################"
 echo "### CONFIG FILES COPIED ###"
