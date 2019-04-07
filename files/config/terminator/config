@@ -1,0 +1,104 @@
+[global_config]
+  enabled_plugins = TerminatorThemes, APTURLHandler, LaunchpadCodeURLHandler, LaunchpadBugURLHandler
+  title_font = FuraCode Nerd Font 10
+  title_hide_sizetext = True
+  title_use_system_font = False
+[keybindings]
+  cycle_next = None
+  cycle_prev = None
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = ForestBlue
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 0.94
+    background_type = transparent
+    cursor_color = "#aaaaaa"
+    font = FuraCode Nerd Font 10
+    foreground_color = "#ffffff"
+    icon_bell = False
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+  [[Atom]]
+    background_color = "#161719"
+    background_darkness = 0.94
+    background_type = transparent
+    cursor_color = "#d0d0d0"
+    font = FuraCode Nerd Font 12
+    foreground_color = "#c5c8c6"
+    icon_bell = False
+    palette = "#000000:#fd5ff1:#87c38a:#ffd7b1:#85befd:#b9b6fc:#85befd:#e0e0e0:#000000:#fd5ff1:#94fa36:#f5ffa8:#96cbfe:#b9b6fc:#85befd:#e0e0e0"
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+  [[ForestBlue]]
+    background_color = "#051519"
+    background_darkness = 0.94
+    background_type = transparent
+    cursor_color = "#9e9ecb"
+    font = FuraCode Nerd Font 12
+    foreground_color = "#e2d8cd"
+    icon_bell = False
+    palette = "#333333:#f8818e:#92d3a2:#1a8e63:#8ed0ce:#5e468c:#31658c:#e2d8cd:#3d3d3d:#fb3d66:#6bb48d:#30c85a:#39a7a2:#7e62b3:#6096bf:#e2d8cd"
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+  [[Glacier]]
+    background_color = "#0c1115"
+    background_darkness = 0.94
+    background_type = transparent
+    cursor_color = "#6c6c6c"
+    font = FuraCode Nerd Font 12
+    foreground_color = "#ffffff"
+    icon_bell = False
+    palette = "#2e343c:#bd0f2f:#35a770:#fb9435:#1f5872:#bd2523:#778397:#ffffff:#404a55:#bd0f2f:#49e998:#fddf6e:#2a8bc1:#ea4727:#a0b6d3:#ffffff"
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+  [[Hardcore]]
+    background_color = "#121212"
+    background_darkness = 0.94
+    background_type = transparent
+    cursor_color = "#bbbbbb"
+    font = FuraCode Nerd Font 12
+    foreground_color = "#a0a0a0"
+    icon_bell = False
+    palette = "#1b1d1e:#f92672:#a6e22e:#fd971f:#66d9ef:#9e6ffe:#5e7175:#ccccc6:#505354:#ff669d:#beed5f:#e6db74:#66d9ef:#9e6ffe:#a3babf:#f8f8f2"
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+  [[Maneal]]
+    cursor_color = "#aaaaaa"
+  [[Material colors]]
+    background_color = "#1E282C"
+    background_darkness = 0.94
+    background_type = transparent
+    cursor_color = "#657B83"
+    font = FuraCode Nerd Font 12
+    foreground_color = "#C3C7D1"
+    icon_bell = False
+    palette = "#073641:#EB606B:#C3E88D:#F7EB95:#80CBC3:#FF2490:#AEDDFF:#FFFFFF:#002B36:#EB606B:#C3E88D:#F7EB95:#7DC6BF:#6C71C3:#34434D:#FFFFFF"
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False
+  [[MaterialDark]]
+    background_color = "#232322"
+    background_darkness = 0.94
+    background_type = transparent
+    cursor_color = "#16afca"
+    font = FuraCode Nerd Font 12
+    foreground_color = "#e5e5e5"
+    icon_bell = False
+    palette = "#212121:#b7141f:#457b24:#f6981e:#134eb2:#560088:#0e717c:#efefef:#424242:#e83b3f:#7aba3a:#ffea2e:#54a4f3:#aa4dbc:#26bbd1:#d9d9d9"
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_system_font = False

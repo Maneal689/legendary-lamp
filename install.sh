@@ -5,64 +5,15 @@ if [ $HOME == "/root" ]; then
     exit
 fi
 
-echo "######################"
-echo "### PACKAGING TOOL ###"
-echo "######################"
 
-packtool="0"
-while [ $packtool != "1" ] && [ $packtool != "2" ]
-do
-    read -p 'WHATS YOUR PACKAGING TOOL:
-[1] PACMAN
-[2] APT-GET
-YOUR CHOICE: ' packtool
-done
-
-if [ $packtool = "1" ]; then
-    packtool="pacman"
-    packArgInstall="-S"
-    sudo pacman -Syu
-else
-    packtool="apt-get"
-    packArgInstall="install"
-    sudo apt-get upgrade
-    sudo apt-get update
-fi
-
-echo "packtool: $packtool"
-echo "packArgInstall: $packArgInstall"
-echo "##############################"
-echo "### INSTALLING NECESSARIES ###"
-echo "##############################"
-
-echo -e "y\n" | sudo $packtool $packArgInstall vim
-echo -e "y\n" | sudo $packtool $packArgInstall neovim
-echo -e "y\n" | sudo $packtool $packArgInstall tree
-echo -e "y\n" | sudo $packtool $packArgInstall terminator
-echo -e "y\n" | sudo $packtool $packArgInstall zsh
-echo -e "y\n" | sudo $packtool $packArgInstall curl
-echo -e "y\n" | sudo $packtool $packArgInstall wget
-#echo -e "y\n" | sudo $packtool $packArgInstall ncurses
-echo -e "y\n" | sudo $packtool $packArgInstall valgrind
-echo -e "y\n" | sudo $packtool $packArgInstall gdb
-echo -e "y\n" | sudo $packtool $packArgInstall gcc
-echo -e "y\n" | sudo $packtool $packArgInstall clang
-#echo -e "y\n" | sudo $packtool $packArgInstall filezilla
-echo -e "y\n" | sudo $packtool $packArgInstall git
-echo -e "y\n" | sudo $packtool $packArgInstall cmake
-echo -e "y\n" | sudo $packtool $packArgInstall screenfetch
-
-echo "############"
-echo "### DONE ###"
-echo "############"
-
+pacman -S - < files/packagesList.txt
 
 echo "##############################"
 echo "### INSTALL POWERLINE FONT ###"
 echo "##############################"
 
 mkdir ~/.fonts
-sudo cp .files/Fura\ Code\ Regular\ Nerd\ Font\ Complete.ttf ~/.fonts/
+sudo cp files/Fura\ Code\ Regular\ Nerd\ Font\ Complete.ttf ~/.fonts/
 fc-cache -f -v
 
 echo "############"
@@ -70,27 +21,20 @@ echo "### DONE ###"
 echo "############"
 
 
-echo "######################"
-echo "### CONFIG NEO-VIM ###"
-echo "######################"
+echo "##############"
+echo "### CONFIG ###"
+echo "##############"
 
-#cp -r .files/.vim ~/
-#cp .files/.vimrc ~/
-cp -r .files/config/nvim $HOME/.config/
+cp files/{.conkyrc,.eslintrc,.prettierrc,.zshrc,.tmux.conf} $HOME/
+
+cp -r files/config/nvim $HOME/.config/
 ln -s ~/.vimrc $HOME/.config/nvim/init.vim
 ln -s ~/.vim $HOME/.config/nvim
 
-echo "############"
-echo "### DONE ###"
-echo "############"
+cp -r files/config/* ~/.config/
 
-echo "###############################"
-echo "### CONFIG ZSH AND BINARIES ###"
-echo "###############################"
-
-cp .files/.zshrc ~/
-cp -r .files/.oh-my-zsh ~/
-cp -r .files/.bin/ ~/
+cp -r files/.oh-my-zsh ~/
+cp -r files/.bin/ ~/
 chsh -s $(which zsh)
 
 echo "############"
