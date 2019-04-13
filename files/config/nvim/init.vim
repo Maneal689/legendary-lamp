@@ -16,89 +16,120 @@ runtime! archlinux.vim
 " do not load defaults if ~/.vimrc is missing
 "let skip_defaults_vim=1
 
-filetype plugin indent on
 syntax on
+filetype plugin indent on
 
-"Enable omni completion <C-x><C-o> to open menu <C-n> or <C-p> to navigate
-"set omnifunc=syntaxcomplete#Complete
+let mapleader=","
 
 let &guicursor = 'n-v-c-sm:block-blinkwait1000-blinkon500-blinkoff500,'
         \          . 'i-c-ci-ve:ver25-blinkwait1000-blinkon500-blinkoff500,'
         \          . 'r-cr-o:hor20-blinkwait1000-blinkon500-blinkoff500'
+
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+set title
+set scrolloff=3
 set background=dark
+
 set number
+set ruler
+set wrap
+
 set showcmd
-set smartcase
 set t_Co=256
 set smartindent
+set cursorline
+set bs=2
+
+""Recherche
+set smartcase
+set ignorecase
+set incsearch
+set hlsearch
+
+"-- Beep
+set visualbell
+set noerrorbells
 
 ""Indent with spaces
 set expandtab
 set softtabstop=2
 set shiftwidth=2
 
-""Indent with tabs
-"set shiftwidth=4
-"set tabstop=4
 
-set ruler
-set cursorline
-set bs=2
 "set encoding=utf8
 set fileencoding=utf-8
 set encoding=UTF-8
-set linebreak
 set foldmethod=syntax
-
-"colorscheme zerg
-"colorscheme darkest-space
+set linebreak
 
 call plug#begin('~/.config/nvim/plugged')
 
 "Esthetic
-Plug 'bling/vim-airline'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tomasr/molokai'
-Plug 'godlygeek/tabular'
 Plug 'airblade/vim-gitgutter'
+Plug 'bling/vim-airline'
+Plug 'godlygeek/tabular'
+Plug 'ryanoasis/vim-devicons'
 Plug 'yggdroot/indentline'
-"Plug 'nathanaelkane/vim-indent-guides'
-"Plug 'ap/vim-css-color'
 
-"Plug 'joshdick/onedark.vim'
+"Colorschemes
+Plug 'ayu-theme/ayu-vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'rakr/vim-one'
+Plug 'tomasr/molokai'
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+
 "Completion
 Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'valloric/youcompleteme'
-"
+
 "Settings and efficiency
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-fugitive'
+Plug 'junegunn/fzf'
 Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdtree'
-Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdcommenter'
-Plug 'vim-scripts/YankRing.vim'
-Plug 'tpope/vim-eunuch'
+Plug 'scrooloose/nerdtree'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sensible'
+Plug 'vim-scripts/YankRing.vim'
+
 "For Tmux navigating seamingless
 Plug 'christoomey/vim-tmux-navigator'
+
 "For JavaScript syntax handling
 Plug 'pangloss/vim-javascript'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'mxw/vim-jsx'
-"
-"For Python synthax folding
-"Plug 'tmhedberg/simpylfold'
-"
+
 "Fixer/Linter
 Plug 'w0rp/ale'
 
 "Not using
 "Plug 'easymotion/vim-easymotion'
+"Plug 'tmhedberg/simpylfold'
 call plug#end()
 
+"--Molokai colorscheme
+"let g:rehash256 = 1
+"let g:molokai_original = 1
+"colorscheme molokai
 
+"-- Ayu colorscheme
+"let ayucolor="light"
+let ayucolor="mirage"
+"let ayucolor="dark"
+colorscheme ayu
+
+"colorscheme one
+"colorscheme palenight
+"colorscheme gruvbox
+"colorscheme onedark
 """"""""""""""""""""""KEYMAP"""""""""""""""""""""""
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -107,6 +138,17 @@ nnoremap <C-h> <C-w>h
 vnoremap <M-s> :sort<CR>
 nnoremap <M-f> :ALEFix<CR>
 nmap <F2> :r !xsel -op<CR>
+
+
+"-- unmap arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+"imap <up> <nop>
+"imap <down> <nop>
+"imap <left> <nop>
+"imap <right> <nop>
 
 """""""""""""""""""""PLUGINS""""""""""""""""""""""
 
@@ -136,10 +178,10 @@ let g:ale_linters = {
 \   'javascript': ['eslint', 'prettier'],
 \   'json': ['eslint'],
 \}
-let g:rehash256 = 1
-let g:molokai_original = 1
-colorscheme molokai
+
 "AirLine
+"let g:airline_theme='one'
+"let g:airline_theme='onedark'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
 "Emmet

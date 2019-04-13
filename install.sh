@@ -26,15 +26,13 @@ echo "### CONFIG ###"
 echo "##############"
 
 cp files/{.conkyrc,.eslintrc,.prettierrc,.zshrc,.tmux.conf} $HOME/
+cp -r files/config/* $HOME/.config/
+cp -r files/.bin/ $HOME/
+cp -r files/.oh-my-zsh $HOME/
 
-cp -r files/config/nvim $HOME/.config/
 ln -s ~/.vimrc $HOME/.config/nvim/init.vim
 ln -s ~/.vim $HOME/.config/nvim
 
-cp -r files/config/* ~/.config/
-
-cp -r files/.oh-my-zsh ~/
-cp -r files/.bin/ ~/
 chsh -s $(which zsh)
 
 echo "############"
