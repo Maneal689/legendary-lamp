@@ -119,6 +119,7 @@ alias rterm="source ~/.zshrc"
 alias cmakeg="cmake -G \"Unix Makefiles\""
 alias vim="nvim"
 alias vi="nvim"
+alias vim-sess="nvim -S $VIM_SESSION"
 alias propre="clear"
 
 [[ $- != *i* ]] && return

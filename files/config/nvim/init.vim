@@ -18,16 +18,12 @@ runtime! archlinux.vim
 
 syntax on
 filetype plugin indent on
-
 let mapleader=","
-
+set termguicolors
 let &guicursor = 'n-v-c-sm:block-blinkwait1000-blinkon500-blinkoff500,'
         \          . 'i-c-ci-ve:ver25-blinkwait1000-blinkon500-blinkoff500,'
         \          . 'r-cr-o:hor20-blinkwait1000-blinkon500-blinkoff500'
 
-if (has("termguicolors"))
-  set termguicolors
-endif
 
 set title
 set scrolloff=3
@@ -38,7 +34,6 @@ set ruler
 set wrap
 
 set showcmd
-set t_Co=256
 set smartindent
 set cursorline
 set bs=2
@@ -81,6 +76,7 @@ Plug 'rakr/vim-one'
 Plug 'tomasr/molokai'
 Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
+Plug 'tomasiser/vim-code-dark'
 
 "Completion
 Plug 'jiangmiao/auto-pairs'
@@ -89,7 +85,6 @@ Plug 'mattn/emmet-vim'
 Plug 'valloric/youcompleteme'
 
 "Settings and efficiency
-Plug 'junegunn/fzf'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
@@ -98,6 +93,8 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
 Plug 'vim-scripts/YankRing.vim'
+Plug 'junegunn/fzf.vim'
+Plug '/usr/local/opt/fzf'
 
 "For Tmux navigating seamingless
 Plug 'christoomey/vim-tmux-navigator'
@@ -126,6 +123,7 @@ let ayucolor="mirage"
 "let ayucolor="dark"
 colorscheme ayu
 
+"colorscheme codedark
 "colorscheme one
 "colorscheme palenight
 "colorscheme gruvbox
@@ -139,7 +137,6 @@ vnoremap <M-s> :sort<CR>
 nnoremap <M-f> :ALEFix<CR>
 nmap <F2> :r !xsel -op<CR>
 
-
 "-- unmap arrow keys
 map <up> <nop>
 map <down> <nop>
@@ -149,6 +146,22 @@ map <right> <nop>
 "imap <down> <nop>
 "imap <left> <nop>
 "imap <right> <nop>
+
+map <C-f> :NERDTreeToggle<CR>
+nmap <F8> :TagbarToggle<CR>
+
+nmap <Leader>ff :Files<CR>
+nmap <Leader>fF :GFiles<CR>
+nmap <Leader>fb :Buffers<CR>
+nmap <Leader>fh :History<CR>
+nmap <Leader>ft :BTags<CR>
+nmap <Leader>fT :Tags<CR>
+nmap <Leader>fl :BLines<CR>
+nmap <Leader>fL :Lines<CR>
+nmap <Leader>f' :Marks<CR>
+
+nmap <Leader>gs :Gstatus<CR>
+nmap <Leader>gc :Gcommit<CR>
 
 """""""""""""""""""""PLUGINS""""""""""""""""""""""
 
@@ -182,20 +195,20 @@ let g:ale_linters = {
 "AirLine
 "let g:airline_theme='one'
 "let g:airline_theme='onedark'
+"let g:airline_theme='codedark'
+let g:airline_theme='ayu'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#bufferline#enabled = 0
+let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+let g:airline#extensions#tabline#show_splits = 0
 "Emmet
 let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
 let g:user_emmet_leader_key='<C-e>'
 
 autocmd FileType html,css,javascript EmmetInstall
-
-"NerdTree
-map <C-f> :NERDTreeToggle<CR>
-
-"Tagbar
-nmap <F8> :TagbarToggle<CR>
 
 "Yankring
 let g:yankring_history_dir="$HOME"
