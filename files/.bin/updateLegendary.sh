@@ -14,13 +14,12 @@ sudo mkdir -p $FOLDER/config/nvim
 sudo mkdir -p $FOLDER/config/emacs
 
 sudo cp -r ~/.bin $FOLDER
+sudo cp -r ~/.fonts $FOLDER
 sudo cp ~/{.eslintrc.js,.prettierrc.js,.conkyrc,.tmux.conf,.zshrc} $FOLDER
 
-sudo cp -r ~/.config/{i3,polybar,rofi,termite} $FOLDER/config/
+sudo cp -r ~/.config/{i3,polybar,rofi,termite,compton.conf} $FOLDER/config/
 
 
-#-- Emacs
-sudo cp ~/.emacs $FOLDER/config/emacs
 #-- NeoVim
 sudo cp -r ~/.config/nvim/autoload $FOLDER/config/nvim
 sudo cp ~/.config/nvim/init.vim $FOLDER/config/nvim

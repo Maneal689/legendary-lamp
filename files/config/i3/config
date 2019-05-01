@@ -205,7 +205,7 @@ bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
 
 assign [class="Firefox|Chromium"] $ws2
 assign [class="Evince"] $ws4
-assign [class="qjackctl|qsynth|qtractor|MuseScore2"] $ws5
+#assign [class="qjackctl|qsynth|qtractor|MuseScore2"] $ws5
 
 gaps inner 15
 gaps outer 2
@@ -223,10 +223,10 @@ workspace "8" output DP2
 workspace "9" output DP2
 workspace "10" output DP2
 
-exec --no-startup-id compton
+exec --no-startup-id compton --blur-background
 exec --no-startup-id $term
 exec --no-startup-id chromium
 exec --no-startup-id conky
-exec --no-startup-id feh --bg-scale ~/Images/Background/ilebackground.jpg
-exec_always --no-startup-id "killall polybar; polybar -r default"
-exec_always --no-startup-id nm-applet
+exec --no-startup-id feh --bg-scale ~/Images/Wallpapers/NGNL2.png
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+#exec_always --no-startup-id nm-applet

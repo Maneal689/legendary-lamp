@@ -13,7 +13,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module",
   },
-  plugins: ["react", "prettier"],
+  plugins: ["react", "prettier", "vue"],
   rules: {
     "linebreak-style": ["error", "unix"],
     "prettier/prettier": "error",

@@ -8,27 +8,16 @@ fi
 
 pacman -S - < files/packagesList.txt
 
-echo "##############################"
-echo "### INSTALL POWERLINE FONT ###"
-echo "##############################"
-
-mkdir ~/.fonts
-sudo cp files/Fura\ Code\ Regular\ Nerd\ Font\ Complete.ttf ~/.fonts/
-fc-cache -f -v
-
-echo "############"
-echo "### DONE ###"
-echo "############"
-
-
 echo "##############"
 echo "### CONFIG ###"
 echo "##############"
 
+mkdir ~/.fonts
+
 cp files/{.conkyrc,.eslintrc,.prettierrc,.zshrc,.tmux.conf} $HOME/
 cp -r files/config/* $HOME/.config/
-cp -r files/.bin/ $HOME/
-cp -r files/.oh-my-zsh $HOME/
+cp -r files/{.bin,.oh-my-zsh,.fonts} $HOME/
+fc-cache -f -v
 
 ln -s ~/.vimrc $HOME/.config/nvim/init.vim
 ln -s ~/.vim $HOME/.config/nvim

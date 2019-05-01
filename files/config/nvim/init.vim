@@ -21,8 +21,8 @@ filetype plugin indent on
 let mapleader=","
 set termguicolors
 let &guicursor = 'n-v-c-sm:block-blinkwait1000-blinkon500-blinkoff500,'
-        \          . 'i-c-ci-ve:ver25-blinkwait1000-blinkon500-blinkoff500,'
-        \          . 'r-cr-o:hor20-blinkwait1000-blinkon500-blinkoff500'
+      \          . 'i-c-ci-ve:ver25-blinkwait1000-blinkon500-blinkoff500,'
+      \          . 'r-cr-o:hor20-blinkwait1000-blinkon500-blinkoff500'
 
 
 set title
@@ -68,15 +68,16 @@ Plug 'bling/vim-airline'
 Plug 'godlygeek/tabular'
 Plug 'ryanoasis/vim-devicons'
 Plug 'yggdroot/indentline'
+Plug 'ap/vim-css-color'
 
 "Colorschemes
 Plug 'ayu-theme/ayu-vim'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'rakr/vim-one'
-Plug 'tomasr/molokai'
-Plug 'morhetz/gruvbox'
-Plug 'joshdick/onedark.vim'
-Plug 'tomasiser/vim-code-dark'
+"Plug 'drewtempelmeyer/palenight.vim'
+"Plug 'rakr/vim-one'
+"Plug 'tomasr/molokai'
+"Plug 'morhetz/gruvbox'
+"Plug 'joshdick/onedark.vim'
+"Plug 'tomasiser/vim-code-dark'
 
 "Completion
 Plug 'jiangmiao/auto-pairs'
@@ -92,6 +93,7 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'junegunn/fzf.vim'
 Plug '/usr/local/opt/fzf'
@@ -99,23 +101,20 @@ Plug '/usr/local/opt/fzf'
 "For Tmux navigating seamingless
 Plug 'christoomey/vim-tmux-navigator'
 
-"For JavaScript syntax handling
-Plug 'pangloss/vim-javascript'
-Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'mxw/vim-jsx'
+"Language handling
+"Plug 'pangloss/vim-javascript'
+"Plug 'othree/javascript-libraries-syntax.vim'
+"Plug 'mxw/vim-jsx'
+"Plug 'posva/vim-vue'
+Plug 'sheerun/vim-polyglot'
 
 "Fixer/Linter
 Plug 'w0rp/ale'
 
 "Not using
 "Plug 'easymotion/vim-easymotion'
-"Plug 'tmhedberg/simpylfold'
+"Plug 'tmhedberg/simpylfold' (python plugin)
 call plug#end()
-
-"--Molokai colorscheme
-"let g:rehash256 = 1
-"let g:molokai_original = 1
-"colorscheme molokai
 
 "-- Ayu colorscheme
 "let ayucolor="light"
@@ -128,6 +127,9 @@ colorscheme ayu
 "colorscheme palenight
 "colorscheme gruvbox
 "colorscheme onedark
+
+"autocmd FileType vue syntax sync fromstart
+
 """"""""""""""""""""""KEYMAP"""""""""""""""""""""""
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -135,7 +137,6 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 vnoremap <M-s> :sort<CR>
 nnoremap <M-f> :ALEFix<CR>
-nmap <F2> :r !xsel -op<CR>
 
 "-- unmap arrow keys
 map <up> <nop>
@@ -159,9 +160,16 @@ nmap <Leader>fT :Tags<CR>
 nmap <Leader>fl :BLines<CR>
 nmap <Leader>fL :Lines<CR>
 nmap <Leader>f' :Marks<CR>
+nmap <Leader>fag :Ag<CR>
 
 nmap <Leader>gs :Gstatus<CR>
 nmap <Leader>gc :Gcommit<CR>
+nmap <Leader>gp :Gpush<CR>
+
+nmap <Leader>af :ALEFirst<CR>
+nmap <Leader>al :ALELast<CR>
+nmap <Leader>an :ALENext<CR>
+nmap <Leader>ap :ALEPrevious<CR>
 
 """""""""""""""""""""PLUGINS""""""""""""""""""""""
 
@@ -181,16 +189,21 @@ let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
 
 let g:ale_fixers = {
-\   'javascript': ['eslint', 'prettier'],
-\   'json': ['eslint', 'prettier'],
-\   'css': ['eslint', 'prettier'],
-\   'java': ['uncrustify'],
-\   'c': ['uncrustify'],
-\}
+      \   'javascript': ['prettier', 'eslint'],
+      \   'json': ['prettier', 'eslint'],
+      \   'css': ['prettier', 'eslint'],
+      \   'vue': ['prettier', 'eslint'],
+      \   'java': ['uncrustify'],
+      \   'c': ['uncrustify'],
+      \}
 let g:ale_linters = {
-\   'javascript': ['eslint', 'prettier'],
-\   'json': ['eslint'],
-\}
+      \   'javascript': ['eslint'],
+      \   'json': ['eslint'],
+      \   'vue': ['eslint'],
+      \}
+
+
+"let g:vue_disable_pre_processors = 1
 
 "AirLine
 "let g:airline_theme='one'
@@ -208,7 +221,7 @@ let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
 let g:user_emmet_leader_key='<C-e>'
 
-autocmd FileType html,css,javascript EmmetInstall
+autocmd FileType vue,html,css,javascript EmmetInstall
 
 "Yankring
 let g:yankring_history_dir="$HOME"
