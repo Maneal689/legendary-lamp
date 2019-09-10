@@ -6,7 +6,7 @@ if [ $HOME == "/root" ]; then
 fi
 
 
-pacman -S - < files/packagesList.txt
+pacman -S - < files/packagesList
 
 echo "##############"
 echo "### CONFIG ###"
@@ -14,13 +14,13 @@ echo "##############"
 
 mkdir ~/.fonts
 
-cp files/{.conkyrc,.eslintrc,.prettierrc,.zshrc,.tmux.conf} $HOME/
+cp files/{.conkyrc,.eslintrc.js,.prettierrc.js,.zshrc,.tmux.conf} $HOME/
 cp -r files/config/* $HOME/.config/
 cp -r files/{.bin,.oh-my-zsh,.fonts} $HOME/
 fc-cache -f -v
 
-ln -s ~/.vimrc $HOME/.config/nvim/init.vim
-ln -s ~/.vim $HOME/.config/nvim
+ln -s $HOME/.config/nvim/init.vim ~/.vimrc
+ln -s $HOME/.config/nvim ~/.vim
 
 chsh -s $(which zsh)
 
