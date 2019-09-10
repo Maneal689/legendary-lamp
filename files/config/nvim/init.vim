@@ -64,115 +64,130 @@ call plug#begin('~/.config/nvim/plugged')
 
 "Esthetic
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-airline'
-Plug 'godlygeek/tabular'
-Plug 'ryanoasis/vim-devicons'
 Plug 'yggdroot/indentline'
+Plug 'luochen1990/rainbow'
+Plug 'bling/vim-airline'
 Plug 'ap/vim-css-color'
+
 
 "Colorschemes
 Plug 'ayu-theme/ayu-vim'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'flrnprz/plastic.vim'
+Plug 'jaredgorski/SpaceCamp'
+
+"Completion
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'mattn/emmet-vim'
+
+"Settings and efficiency
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+"view of registers
+Plug 'junegunn/vim-peekaboo'
+
+Plug 'kana/vim-textobj-user'
+
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sensible'
+Plug 'vim-scripts/YankRing.vim'
+
+"For Tmux navigating seamingless
+Plug 'christoomey/vim-tmux-navigator'
+"Language handling
+Plug 'sheerun/vim-polyglot'
+
+"Not using
+"Plug 'terryma/vim-multiple-cursors'
+"Plug 'godlygeek/tabular'
+"Plug 'tpope/vim-endwise'
+"Plug 'majutsushi/tagbar'
+"Plug 'easymotion/vim-easymotion'
+"Plug 'ryanoasis/vim-devicons'
+"Plug 'scrooloose/nerdtree'
+"Plug 'tmhedberg/simpylfold' (python plugin)
+"Plug 'pangloss/vim-javascript'
+"Plug 'othree/javascript-libraries-syntax.vim'
+"Plug 'mxw/vim-jsx'
+"
+"Plug 'posva/vim-vue'
 "Plug 'drewtempelmeyer/palenight.vim'
 "Plug 'rakr/vim-one'
 "Plug 'tomasr/molokai'
 "Plug 'morhetz/gruvbox'
 "Plug 'joshdick/onedark.vim'
 "Plug 'tomasiser/vim-code-dark'
-
-"Completion
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-surround'
-Plug 'mattn/emmet-vim'
-Plug 'valloric/youcompleteme'
-
-"Settings and efficiency
-Plug 'majutsushi/tagbar'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'terryma/vim-multiple-cursors'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-repeat'
-Plug 'vim-scripts/YankRing.vim'
-Plug 'junegunn/fzf.vim'
-Plug '/usr/local/opt/fzf'
-
-"For Tmux navigating seamingless
-Plug 'christoomey/vim-tmux-navigator'
-
-"Language handling
-"Plug 'pangloss/vim-javascript'
-"Plug 'othree/javascript-libraries-syntax.vim'
-"Plug 'mxw/vim-jsx'
-"Plug 'posva/vim-vue'
-Plug 'sheerun/vim-polyglot'
-
-"Fixer/Linter
-Plug 'w0rp/ale'
-
-"Not using
-"Plug 'easymotion/vim-easymotion'
-"Plug 'tmhedberg/simpylfold' (python plugin)
 call plug#end()
 
 "-- Ayu colorscheme
 "let ayucolor="light"
 let ayucolor="mirage"
 "let ayucolor="dark"
-colorscheme ayu
+let g:palenight_terminal_italics=1
 
-"colorscheme codedark
-"colorscheme one
-"colorscheme palenight
-"colorscheme gruvbox
-"colorscheme onedark
-
-"autocmd FileType vue syntax sync fromstart
+colorscheme palenight
+"colorscheme plastic
+"colorscheme ayu
+"colorscheme spacecamp_lite
 
 """"""""""""""""""""""KEYMAP"""""""""""""""""""""""
+nnoremap <Leader>so :so ~/.vimrc<CR>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 vnoremap <M-s> :sort<CR>
-nnoremap <M-f> :ALEFix<CR>
+nnoremap <M-f> :CocCommand prettier.formatFile<CR>
+nnoremap <M-e> :CocCommand eslint.executeAutofix<CR>
+
+"-- Move lines
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+inoremap <A-j> <Esc>:m .+1<CR>==gi
+inoremap <A-k> <Esc>:m .-2<CR>==gi
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 "-- unmap arrow keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
+nmap <up> <nop>
+nmap <down> <nop>
+nmap <left> <nop>
+nmap <right> <nop>
 "imap <up> <nop>
 "imap <down> <nop>
 "imap <left> <nop>
 "imap <right> <nop>
 
-map <C-f> :NERDTreeToggle<CR>
-nmap <F8> :TagbarToggle<CR>
+"nnoremap <C-f> :NERDTreeToggle<CR>
+"nnoremap <F8> :TagbarToggle<CR>
 
-nmap <Leader>ff :Files<CR>
-nmap <Leader>fF :GFiles<CR>
-nmap <Leader>fb :Buffers<CR>
-nmap <Leader>fh :History<CR>
-nmap <Leader>ft :BTags<CR>
-nmap <Leader>fT :Tags<CR>
-nmap <Leader>fl :BLines<CR>
-nmap <Leader>fL :Lines<CR>
-nmap <Leader>f' :Marks<CR>
-nmap <Leader>fag :Ag<CR>
+nnoremap <Leader>ff :Files<CR>
+nnoremap <Leader>fF :GFiles<CR>
+nnoremap <Leader>fb :Buffers<CR>
+nnoremap <Leader>fh :History<CR>
+nnoremap <Leader>ft :BTags<CR>
+nnoremap <Leader>fT :Tags<CR>
+nnoremap <Leader>fl :BLines<CR>
+nnoremap <Leader>fL :Lines<CR>
+nnoremap <Leader>f' :Marks<CR>
+nnoremap <Leader>fag :Ag<CR>
 
-nmap <Leader>gs :Gstatus<CR>
-nmap <Leader>gc :Gcommit<CR>
-nmap <Leader>gp :Gpush<CR>
-
-nmap <Leader>af :ALEFirst<CR>
-nmap <Leader>al :ALELast<CR>
-nmap <Leader>an :ALENext<CR>
-nmap <Leader>ap :ALEPrevious<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+nnoremap <Leader>gp :Gpush<CR>
 
 """""""""""""""""""""PLUGINS""""""""""""""""""""""
 
+"Coc Vim
+let g:coc_global_extensions=['coc-html','coc-css','coc-json','coc-eslint','coc-prettier','coc-tsserver','coc-tabnine']
+
+"Rainbow parentheses
+let g:rainbow_active=1
 "Multiple-cursor
 let g:multi_cursor_use_default_mapping=0
 " Default mapping
@@ -184,31 +199,8 @@ let g:multi_cursor_next_key            = '<C-m>'
 let g:multi_cursor_prev_key            = '<C-p>'
 let g:multi_cursor_skip_key            = '<C-x>'
 let g:multi_cursor_quit_key            = '<Esc>'
-"ALE
-let g:ale_sign_error = '❌'
-let g:ale_sign_warning = '⚠️'
-
-let g:ale_fixers = {
-      \   'javascript': ['prettier', 'eslint'],
-      \   'json': ['prettier', 'eslint'],
-      \   'css': ['prettier', 'eslint'],
-      \   'vue': ['prettier', 'eslint'],
-      \   'java': ['uncrustify'],
-      \   'c': ['uncrustify'],
-      \}
-let g:ale_linters = {
-      \   'javascript': ['eslint'],
-      \   'json': ['eslint'],
-      \   'vue': ['eslint'],
-      \}
-
-
-"let g:vue_disable_pre_processors = 1
 
 "AirLine
-"let g:airline_theme='one'
-"let g:airline_theme='onedark'
-"let g:airline_theme='codedark'
 let g:airline_theme='ayu'
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled = 1
@@ -221,9 +213,18 @@ let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
 let g:user_emmet_leader_key='<C-e>'
 
-autocmd FileType vue,html,css,javascript EmmetInstall
+autocmd FileType vue,html,css,javascript,php EmmetInstall
 
 "Yankring
 let g:yankring_history_dir="$HOME"
 let g:yankring_clipboard_monitor=0
 let g:yankring_history_file = ".nvim_yankring"
+
+
+"TextObj
+call textobj#user#plugin('variableword', {
+      \'word': {
+      \ 'pattern': '[A-Z]\{0,1}[a-z]*',
+      \ 'select': ['iv', 'av'],
+      \},
+      \})

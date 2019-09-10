@@ -1,12 +1,15 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/.bin:$PATH
 export TERM="tmux-256color"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME"
 #export TERM="screen-256color"
 #export TERM="xterm-256color"
 
 #export LEGENDARY="$HOME/Projects/script/legendary-lamp"
 export PBIN="$HOME/.bin"
 export LEGENDARY="$HOME/Projects/perso/script/legendary-lamp"
+export CONFIG="$HOME/.config"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -115,14 +118,16 @@ alias la="ls --color=auto -ApX"
 alias ll="ls --color=auto -lX"
 alias lla="ls --color=auto -laX"
 alias ..="cd .."
-alias rterm="source ~/.zshrc"
+alias so="source ~/.zshrc"
 alias cmakeg="cmake -G \"Unix Makefiles\""
 alias vim="nvim"
 alias vi="nvim"
 alias vim-sess="nvim -S $VIM_SESSION"
 alias propre="clear"
 
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && tmux h && exec tmux a
-[[ -z "$TMUX" ]] && exec tmux
-[[ -n "$TMUX" ]] && screenfetch
+#[[ $- != *i* ]] && return
+#[[ -z "$TMUX" ]] && tmux h && exec tmux a
+#[[ -z "$TMUX" ]] && exec tmux
+#[[ -n "$TMUX" ]] && screenfetch
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
