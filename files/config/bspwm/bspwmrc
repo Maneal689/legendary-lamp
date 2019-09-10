@@ -1,0 +1,32 @@
+#! /bin/sh
+
+sxhkd &
+killall nm-applet
+nm-applet &
+feh --bg-scale ~/Images/Background/circuit.jpg
+$XDG_CONFIG_HOME/polybar/launch.sh &
+killall compton
+compton &
+killall conky
+conky &
+
+xrandr --output DP2 --right-of eDP1 --auto
+xrandr --output DP1 --left-of eDP1 --auto
+
+bspc monitor eDP1 -d 1 2 3 4 5 6 7 8
+bspc monitor DP1 -d 10
+bspc monitor DP2 -d 9
+
+bspc config border_width         2
+bspc config window_gap          12
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc rule -a termite desktop='^1'
+bspc rule -a Chromium desktop='^2'
+#bspc rule -a Gimp desktop='^8' state=floating follow=on
+#bspc rule -a mplayer2 state=floating
+#bspc rule -a Kupfer.py focus=on
+#bspc rule -a Screenkey manage=off
