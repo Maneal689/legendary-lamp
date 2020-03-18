@@ -6,6 +6,7 @@ if [ $HOME == "/root" ]; then
     exit
 fi
 
+
 echo "################################"
 echo "###   COPYING CONFIG FILES   ###"
 echo "################################"
@@ -15,20 +16,21 @@ sudo mkdir -p $FOLDER/config/nvim
 sudo cp -r ~/.bin $FOLDER
 sudo cp -r ~/.fonts $FOLDER
 sudo cp -r ~/.oh-my-zsh $FOLDER
-sudo cp ~/{.eslintrc.js,.prettierrc.js,.conkyrc,.tmux.conf,.zshrc} $FOLDER
+sudo cp ~/{.tmux.conf,.zshrc} $FOLDER
 
-sudo cp -r ~/.config/{i3,polybar,rofi,termite,compton.conf,launchCompton.sh,bspwm,sxhkd,dunst} $FOLDER/config/
+sudo cp -r ~/.config/{awesome,awesome_backups,polybar,rofi,picom.conf,bspwm,sxhkd,dunst,kitty} $FOLDER/config/
 
 
 #-- NeoVim
 sudo cp -r ~/.config/nvim/autoload $FOLDER/config/nvim
-sudo cp ~/.config/nvim/init.vim $FOLDER/config/nvim
+sudo cp -r ~/.config/nvim/sessions $FOLDER/config/nvim
+sudo cp ~/.config/nvim/*.vim $FOLDER/config/nvim
 #ln ~/.config/nvim/init.vim ~/.vimrc
 #ln -s ~/.config/nvim/ ~/.vim
 
 
 
-echo -e "Config:\n\t- conkyrc\n\t- eslintrc\n\t- prettierrc\n\t- tmux\n\t- zsh\n\t- i3\n\t- polybar\n\t- rofi\n\t- termite\n\t- nvim\n\t- compton\n\t- bspwm\n\t- sxhkd\n\t- dunst"
+echo -e "Config:\n\t- tmux\n\t- zsh\n\t- awesome\n\t- bspwm\n\t- polybar\n\t- rofi\n\t- kitty\n\t- nvim\n\t- dunst"
 
 
 echo "################"

@@ -4,7 +4,10 @@
 
 # terminal emulator
 super + Return
-	termite
+	termite --exec="tmux"
+
+super + shift + Return
+	termite --exec="tmux a"
 
 # program launcher
 super + d
@@ -15,11 +18,13 @@ super + Tab
         rofi -show window
 
 #Internet launcher
+#super + i
+#        google-chrome-stable
 super + i
-        chromium
+        firefox-developer-edition
 
 super + c
-        i3lock -i ~/Images/Background/panda.png
+        i3lock -i ~/Pictures/Background/panda.png
     
 # make sxhkd reload its configuration files:
 super + Escape

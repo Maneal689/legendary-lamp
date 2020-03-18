@@ -14,7 +14,7 @@ echo "##############"
 
 mkdir ~/.fonts
 
-cp files/{.conkyrc,.eslintrc.js,.prettierrc.js,.zshrc,.tmux.conf} $HOME/
+cp files/{.zshrc,.tmux.conf} $HOME/
 cp -r files/config/* $HOME/.config/
 cp -r files/{.bin,.oh-my-zsh,.fonts} $HOME/
 fc-cache -f -v
