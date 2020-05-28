@@ -80,10 +80,10 @@ set linebreak
 "let ayucolor="dark"
 "let g:palenight_terminal_italics=1
 
-"colorscheme palenight
-colorscheme onedark
-"colorscheme plastic
-"colorscheme ayu
-"colorscheme spacecamp_lite
+" colorscheme molokai
+" colorscheme seoul256
+" colorscheme solarized8
+" colorscheme onedark
+colorscheme dracula
 
-autocmd FileType vue,html,css,javascript,php EmmetInstall
+autocmd FileType vue,html,css,javascript,php,xslt,xml EmmetInstall

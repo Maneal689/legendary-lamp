@@ -11,7 +11,6 @@ echo "################################"
 echo "###   COPYING CONFIG FILES   ###"
 echo "################################"
 
-sudo mkdir -p $FOLDER/config/nvim
 
 sudo cp -r ~/.bin $FOLDER
 sudo cp -r ~/.fonts $FOLDER
@@ -22,6 +21,7 @@ sudo cp -r ~/.config/{awesome,awesome_backups,polybar,rofi,picom.conf,bspwm,sxhk
 
 
 #-- NeoVim
+sudo mkdir -p $FOLDER/config/nvim
 sudo cp -r ~/.config/nvim/autoload $FOLDER/config/nvim
 sudo cp -r ~/.config/nvim/sessions $FOLDER/config/nvim
 sudo cp ~/.config/nvim/*.vim $FOLDER/config/nvim
@@ -31,6 +31,11 @@ sudo cp ~/.config/nvim/*.vim $FOLDER/config/nvim
 
 
 echo -e "Config:\n\t- tmux\n\t- zsh\n\t- awesome\n\t- bspwm\n\t- polybar\n\t- rofi\n\t- kitty\n\t- nvim\n\t- dunst"
+
+cd $LEGENDARY
+git add --all
+git commit -am "New backup"
+git push
 
 
 echo "################"

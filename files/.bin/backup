@@ -1,0 +1,6 @@
+#!/bin/sh
+
+cd ~
+$HOME/.bin/updateLegendary.sh
+rsync -aAXv --delete --exclude="*/node_modules" --exclude="*/build" --exclude="tags" --exclude="*/.git" work/ backup
+tar --xattrs -czvpf backup.tar.gz backup

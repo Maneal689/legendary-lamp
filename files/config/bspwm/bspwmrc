@@ -1,36 +1,72 @@
 #! /bin/sh
 
-sxhkd &
+killall -q -s 9 sxhkd
+killall -q -s 9 nm-applet
+killall -q -s 9 conky
+killall -q -s 9 picom
+pkill -f dynamicWallpaper.py
+
+sxhkd -m 1 &
 nm-applet &
-#python3 ~/work/perso/Python/clip_daemon/daemon.py&
-#feh --bg-scale ~/Images/Background/circuit.jpg
-#feh --bg-scale /usr/share/backgrounds/gnome/adwaita-day.jpg
-#feh --bg-scale ~/Pictures/Wallpapers/katana.png
-feh --bg-scale ~/Pictures/Wallpapers/red_snake.jpg
+
+python3 $HOME/.bin/dynamicWallpaper.py
 $XDG_CONFIG_HOME/polybar/launch.sh &
-#killall -q picom
-#picom &
-killall -q conky
-conky &
+#conky &
+#picom -b
+
+
+# xset r rate 400 44
+# xsetroot -cursor_name left_ptr
+setxkbmap -option caps:escape
 
 xrandr --output DP2 --right-of eDP1 --auto
-xrandr --output DP1 --left-of eDP1 --auto
+xrandr --output HDMI1 --right-of eDP1 --auto
+bspc config -m eDP1 top_padding 20
+bspc config -m HDMI1 top_padding 20
+bspc config -m DP2 top_padding 20
+
 
 bspc monitor eDP1 -d 1 2 3 4 5 6
-bspc monitor DP1 -d 7 8
+bspc monitor HDMI1 -d 7 8
 bspc monitor DP2 -d 9 10
 
-bspc config border_width         2
-bspc config window_gap          12
 
-bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
 
-bspc rule -a termite desktop='^1'
+bspc config border_width        0
+bspc config window_gap          15
+bspc config border_radius       15
+
+
+
+# Set the border colors.
+bspc config normal_border_color "#00000000"
+bspc config active_border_color "#00000000"
+bspc config focused_border_color "#ffffff"
+bspc config presel_feedback_color "#00000000"
+
+bspc config bottom_padding -5
+bspc config left_padding -5
+bspc config right_padding -5
+
+bspc config split_ratio          0.50
+bspc config gapless_monocle      false
+bspc config click_to_focus        true
+
+bspc config pointer_modifier mod1
+bspc config pointer_action2 resize_side
+bspc config pointer_action1 resize_corner
+bspc config pointer_action1 move
+
+#bspc monitor eDP1 -d う え お ' か ' # pad with spaces
+#bspc monitor DP2 -d あ い
+
+
+# bspc rule -a kitty desktop='^1'
+
 bspc rule -a Chromium desktop='^2'
-bspc rule -a Google-chrome desktop='^2'
 bspc rule -a firefoxdeveloperedition desktop='^2'
+
+bspc rule -a Code desktop='^3'
 #bspc rule -a Gimp desktop='^8' state=floating follow=on
 #bspc rule -a mplayer2 state=floating
 #bspc rule -a Kupfer.py focus=on

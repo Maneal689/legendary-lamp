@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+
+import os
+import shutil
+import pyperclip
+from pathlib import Path
+
+
+def select_from(choices):
+    res = -1
+    print("================")
+    for i in range(len(choices)):
+        print("[", i, "]: ", choices[i], sep="")
+    try:
+        res = int(input("Your choice: "))
+    except:
+        res = -1
+    return res
+
+
+def main():
+    session_folder = Path(os.getenv("VIM_SESSION"))
+    sessions = os.listdir(session_folder)
+    for i in range(len(sessions)):
+        sessions[i] = sessions[i].split(".")[0]
+    selected = select_from(sessions)
+    if selected < 0 or selected > len(sessions) - 1:
+        print("Wrong entry, please retry")
+        exit(0)
+    selected_session = sessions[selected]
+    pyperclip.copy("vim -S " + str(Path(session_folder, selected_session)) + ".session.vim")
+    print("You can paste to edit")
+
+
+if __name__ == "__main__":
+    main()

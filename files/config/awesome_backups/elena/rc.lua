@@ -222,10 +222,10 @@ screen_height = awful.screen.focused().geometry.height
 -- ===================================================================
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.tile,
-    awful.layout.suit.floating,
-    awful.layout.suit.max,
-    --awful.layout.suit.spiral,
+    awful.layout.suit.spiral
+    --awful.layout.suit.tile,
+    --awful.layout.suit.floating,
+    --awful.layout.suit.max,
     --awful.layout.suit.spiral.dwindle,
     --awful.layout.suit.tile.top,
     --awful.layout.suit.fair,
@@ -273,16 +273,16 @@ awful.screen.connect_for_each_screen(function(s)
     local l = awful.layout.suit -- Alias to save time :)
     -- Tag layouts
     local layouts = {
-        l.tile,
-        l.tile,
-        l.tile,
-        l.tile,
-        l.tile,
-        l.tile,
-        l.tile,
-        l.tile,
-        l.tile,
-        l.tile
+        l.spiral,
+        l.spiral,
+        l.spiral,
+        l.spiral,
+        l.spiral,
+        l.spiral,
+        l.spiral,
+        l.spiral,
+        l.spiral,
+        l.spiral
     }
 
     -- Tag names

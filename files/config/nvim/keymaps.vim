@@ -46,6 +46,7 @@ nnoremap <Leader>fl :BLines<CR>
 nnoremap <Leader>fL :Lines<CR>
 nnoremap <Leader>f' :Marks<CR>
 nnoremap <Leader>fag :Ag<CR>
+nnoremap <Leader>frg :Rg<CR>
 
 "nnoremap <Leader>gs :Gstatus<CR>
 "nnoremap <Leader>gc :Gcommit<CR>

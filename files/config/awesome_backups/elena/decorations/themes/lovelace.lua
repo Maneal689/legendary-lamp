@@ -21,7 +21,7 @@ client.connect_signal("request::titlebars", function(c)
         },
         {
             awful.titlebar.widget.minimizebutton(c),
-            awful.titlebar.widget.maximizedbutton(c),
+            --awful.titlebar.widget.maximizedbutton(c),
             awful.titlebar.widget.closebutton(c),
 
             -- Create some extra padding at the edge

@@ -1,21 +1,4 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:/usr/local/bin:$HOME/.bin:$HOME/.config/composer/vendor/bin:$PATH
-export TERM="tmux-256color"
-[[ -z "$TMUX" ]] && export TERM="xterm-256color"
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME"
-#export TERM="screen-256color"
-#export TERM="xterm-256color"
-
-#export LEGENDARY="$HOME/Projects/script/legendary-lamp"
-export PBIN="$HOME/.bin"
-export LEGENDARY="/home/maneal/work/perso/script/legendary-lamp"
-export CONFIG="$HOME/.config"
-export AWESOME_THEMES="$HOME/.config/awesome_backups"
-export VIM_SESSION="$HOME/.config/nvim/sessions"
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -132,7 +115,6 @@ alias propre="clear"
 #[[ "$DISPLAY" ]] && [[ -z "$TMUX" ]] && [[ "$TMUX_ATTACH" ]] && exec tmux a
 #[[ -n "$TMUX" ]] && screenfetch
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 ### C Graphical Programming Environement Variable
 export LIBRARY_PATH=$LIBRARY_PATH:/home/maneal/.graph_programming/lib
 export LD_LIBRARY_PATH=$LIBRARY_PATH:/home/maneal/.graph_programming/lib

@@ -11,20 +11,23 @@ local keys = require("keys")
 local desktop_control = require("noodle.desktop_control")
 local minimal_tasklist = require("noodle.minimal_tasklist")
 
--- Start button widget (can toggle sidebar, tray, scratchpad)
-start_widget = wibox.widget.imagebox(icons.start)
+start_widget = wibox.widget.textclock("%H:%M")
 start_widget:buttons(gears.table.join(
         -- Left click - Toggle sidebar
         awful.button({ }, 1, function ()
-            sidebar.visible = not sidebar.visible
-        end),
-        -- Middle click - Toggle scratchpad
-        awful.button({ }, 2, apps.scratchpad),
-        -- Right click - Toggle tray
-        awful.button({ }, 3, function ()
-            local traybox = awful.screen.focused().traybox
-            traybox.visible = not traybox.visible
+          if start_widget.format == "%H:%M" then
+            start_widget.format = "%a %d %b"
+          else
+            start_widget.format = "%H:%M"
+          end
         end)
+        ---- Middle click - Toggle scratchpad
+        --awful.button({ }, 2, apps.scratchpad),
+        ---- Right click - Toggle tray
+        --awful.button({ }, 3, function ()
+            --local traybox = awful.screen.focused().traybox
+            --traybox.visible = not traybox.visible
+        --end)
     ))
 
 -- Create item separator
@@ -76,13 +79,10 @@ awful.screen.connect_for_each_screen(function(s)
     -- Add or remove widgets here
     s.mywibox:setup {
         layout = wibox.layout.fixed.horizontal,
-        pad,
         start_widget,
+        pad,
         textseparator,
         s.mytaglist,
-        textseparator,
-        desktop_control,
-        pad
     }
 
     -- Only set them if they exist, else they overwrite the position variable
@@ -118,11 +118,6 @@ awful.screen.connect_for_each_screen(function(s)
 
 end)
 
--- Every bar theme should provide these fuctions
-function wibars_toggle()
-    local s = awful.screen.focused()
-    s.mywibox.visible = not s.mywibox.visible
-end
 function tray_toggle()
     local s = awful.screen.focused()
     s.traybox.visible = not s.traybox.visible

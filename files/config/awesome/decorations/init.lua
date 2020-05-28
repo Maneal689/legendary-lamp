@@ -4,7 +4,7 @@ local helpers = require("helpers")
 local gears = require("gears")
 
 -- Disable popup tooltip on titlebar button hover
-awful.titlebar.enable_tooltip = false
+--awful.titlebar.enable_tooltip = false
 
 decorations = {}
 
