@@ -3,19 +3,10 @@ call plug#begin('~/.config/nvim/plugged')
 "Esthetic
 Plug 'yggdroot/indentline'
 Plug 'luochen1990/rainbow'
-Plug 'bling/vim-airline'
 Plug 'itchyny/lightline.vim'
 
-
 "Colorschemes
-Plug 'ayu-theme/ayu-vim'
-Plug 'drewtempelmeyer/palenight.vim'
 Plug 'joshdick/onedark.vim'
-Plug 'lifepillar/vim-solarized8'
-Plug 'tomasr/molokai'
-Plug 'junegunn/seoul256.vim'
-Plug 'dracula/vim', {'as': 'dracula'}
-
 
 "Completion
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
@@ -24,19 +15,16 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'mattn/emmet-vim'
 Plug 'dense-analysis/ale'
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
-" Plug 'mlaursen/vim-react-snippets'
-
-
-"view of registers
-"Plug 'junegunn/vim-peekaboo'
 
 "Settings and efficiency
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'mbbill/undotree'
 
 " Plug 'ludovicchabant/vim-gutentags'
+Plug 'tpope/vim-obsession'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
@@ -53,27 +41,35 @@ Plug 'lervag/vimtex'
 Plug 'xuhdev/vim-latex-live-preview'
 
 "Not using
-"Plug 'airblade/vim-gitgutter'
-"Plug 'ap/vim-css-color'
-"Plug 'terryma/vim-multiple-cursors'
-"Plug 'tpope/vim-fugitive'
-"Plug 'kana/vim-textobj-user'
-"Plug 'godlygeek/tabular'
-"Plug 'tpope/vim-endwise'
-"Plug 'majutsushi/tagbar'
-"Plug 'easymotion/vim-easymotion'
-"Plug 'ryanoasis/vim-devicons'
-"Plug 'scrooloose/nerdtree'
-"Plug 'tmhedberg/simpylfold' (python plugin)
-"Plug 'pangloss/vim-javascript'
-"Plug 'othree/javascript-libraries-syntax.vim'
-"Plug 'mxw/vim-jsx'
-"
-"Plug 'posva/vim-vue'
-"Plug 'rakr/vim-one'
-"Plug 'tomasr/molokai'
-"Plug 'morhetz/gruvbox'
-"Plug 'tomasiser/vim-code-dark'
+" Plug 'junegunn/vim-peekaboo'
+
+" Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
+" Plug 'mlaursen/vim-react-snippets'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'bling/vim-airline'
+" Plug 'ap/vim-css-color'
+" Plug 'terryma/vim-multiple-cursors'
+" Plug 'tpope/vim-fugitive'
+" Plug 'kana/vim-textobj-user'
+" Plug 'godlygeek/tabular'
+" Plug 'tpope/vim-endwise'
+" Plug 'majutsushi/tagbar'
+" Plug 'easymotion/vim-easymotion'
+" Plug 'ryanoasis/vim-devicons'
+" Plug 'tmhedberg/simpylfold' (python plugin)
+
+" Plug 'posva/vim-vue'
+" Plug 'rakr/vim-one'
+" Plug 'tomasr/molokai'
+" Plug 'morhetz/gruvbox'
+" Plug 'tomasiser/vim-code-dark'
+" Plug 'ayu-theme/ayu-vim'
+" Plug 'drewtempelmeyer/palenight.vim'
+" Plug 'lifepillar/vim-solarized8'
+" Plug 'tomasr/molokai'
+" Plug 'junegunn/seoul256.vim'
+" Plug 'dracula/vim', {'as': 'dracula'}
 call plug#end()
 
 " CamelCaseMotion
@@ -105,7 +101,9 @@ let g:ale_sign_warning = '--'
 "Rainbow parentheses
 let g:rainbow_active=1
 
+"polyglot
 let g:vim_markdown_conceal=0
+let g:polyglot_disabled = ['nerdtree']
 
 let g:vimtex_fold_enabled = 1
 let g:tex_flavor = 'latex'
@@ -117,7 +115,7 @@ let g:tex_flavor = 'latex'
 "LightLine
 set noshowmode
 let g:lightline = {
-      \ 'colorscheme': 'darcula',
+      \ 'colorscheme': 'one',
       \ }
 
 
@@ -136,6 +134,8 @@ let g:user_emmet_mode='a'
 let g:user_emmet_install_global = 0
 let g:user_emmet_leader_key='<C-e>'
 
+" let g:webdevicons_conceal_nerdtree_brackets = 0
+" let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
 
 "Yankring
 let g:yankring_history_dir="$HOME"

@@ -17,24 +17,17 @@
 
 let mapleader=","
 
-"Get functions
-source $HOME/.config/nvim/functions.vim
 
-"Get filetype specific settings
-source $HOME/.config/nvim/ft.vim
-
-"Get plugin install and configuration
-source $HOME/.config/nvim/plugins.vim
-
-"Get keymapping
-source $HOME/.config/nvim/keymaps.vim
-
-syntax on
+if !exists('g:syntax_on')
+  syntax enable
+endif
 filetype plugin indent on
 set termguicolors
 let &guicursor = 'n-v-c-sm:block-blinkwait1000-blinkon500-blinkoff500,'
       \          . 'i-c-ci-ve:ver25-blinkwait1000-blinkon500-blinkoff500,'
       \          . 'r-cr-o:hor20-blinkwait1000-blinkon500-blinkoff500'
+
+set conceallevel=3
 
 set title
 set scrolloff=3
@@ -74,6 +67,19 @@ set foldlevelstart=0
 
 set linebreak
 
+
+"Get functions
+source $HOME/.config/nvim/functions.vim
+
+"Get filetype specific settings
+source $HOME/.config/nvim/ft.vim
+
+"Get plugin install and configuration
+source $HOME/.config/nvim/plugins.vim
+
+"Get keymapping
+source $HOME/.config/nvim/keymaps.vim
+
 "-- Ayu colorscheme
 "let ayucolor="light"
 "let ayucolor="mirage"
@@ -83,7 +89,11 @@ set linebreak
 " colorscheme molokai
 " colorscheme seoul256
 " colorscheme solarized8
-" colorscheme onedark
-colorscheme dracula
+colorscheme onedark
+" colorscheme dracula
 
+" syntax enable
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
 autocmd FileType vue,html,css,javascript,php,xslt,xml EmmetInstall

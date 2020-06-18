@@ -1,5 +1,5 @@
 """"""""""""""""""""""KEYMAP"""""""""""""""""""""""
-nnoremap <Leader>ss :call SaveSession()<CR>
+" nnoremap <Leader>ss :call SaveSession()<CR>
 nnoremap <Leader>so :so ~/.vimrc<CR>
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -32,7 +32,8 @@ nmap <right> <nop>
 "imap <left> <nop>
 "imap <right> <nop>
 
-"nnoremap <C-f> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeToggle<CR>
+nnoremap <Leader>u :UndotreeToggle<CR>
 "nnoremap <F8> :TagbarToggle<CR>
 
 "-- Fzf keymaps
