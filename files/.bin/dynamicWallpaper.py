@@ -5,10 +5,10 @@ from datetime import timedelta
 from time import sleep
 from os import system
 
-DYNAMICS = [{"hour": 0, "minute": 0, "wallpaper": "/home/maneal/.config/bspwm/wallpapers/midnight-wallpaper.jpg"},
+DYNAMICS = [{"hour": 23, "minute": 30, "wallpaper": "/home/maneal/.config/bspwm/wallpapers/midnight-wallpaper.jpg"},
             {"hour": 7, "minute": 0,
                 "wallpaper": "/home/maneal/.config/bspwm/wallpapers/morning-wallpaper.jpg"},
-            {"hour": 14, "minute": 0,
+            {"hour": 13, "minute": 0,
                 "wallpaper": "/home/maneal/.config/bspwm/wallpapers/noon-wallpaper.jpg"},
             {"hour": 19, "minute": 0,
                 "wallpaper": "/home/maneal/.config/bspwm/wallpapers/night-wallpaper.jpg"},
