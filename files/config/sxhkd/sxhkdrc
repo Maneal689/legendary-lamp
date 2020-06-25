@@ -21,7 +21,7 @@ super + Tab
 Print
         scrot -e 'mv $f ~/Pictures/Screenshots'
 super + Print
-        scrot -s -e 'mv $f ~/Pictures/Screenshots'
+        bash -c "sleep 1 && scrot -s -e 'mv $f ~/Pictures/Screenshots'"
 
 #Internet launcher
 #super + i
